@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210210101043_Initial.cs" />
+    <Compile Remove="Migrations\20210210101043_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210210143838_Initial.cs" />
+    <Compile Remove="Migrations\20210210143838_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210210144247_Initial.cs" />
+    <Compile Remove="Migrations\20210210144247_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210210144707_Initial.cs" />
+    <Compile Remove="Migrations\20210210144707_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210212103440_ChangeMovieObject.cs" />
+    <Compile Remove="Migrations\20210212103440_ChangeMovieObject.Designer.cs" />
+    <Compile Remove="Migrations\20210212103705_Addprops.cs" />
+    <Compile Remove="Migrations\20210212103705_Addprops.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="ReflectionIT.Mvc.Paging" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,51 @@
+﻿@model MovieInfoList.ViewModels.LoginViewModel
+
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div>
+
+	<a asp-controller="Account" asp-action="Register">Register</a>
+</div>
+
+
+<div class="container p-3 my-3 bg-dark text-white">
+	<h1 class="text-info">Welcome to MovieInfoList Project </h1>
+	<p class="text-danger">Please Login or Register </p>
+
+</div>
+<h1>Login</h1>
+<div class="col-md-5">
+	<section>
+		<form asp-controller="Account" asp-action="Login" id="account" method="post">
+			<div asp-validation-summary="All" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="Email"></label>
+				<input asp-for="Email" class="form-control" />
+				<span asp-validation-for="Email" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Password"></label>
+				<input asp-for="Password" class="form-control" />
+				<span asp-validation-for="Password" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<div class="checkbox">
+					<label asp-for="RememberMe">
+						<input asp-for="RememberMe" />
+						@Html.DisplayNameFor(m => m.RememberMe)
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Log in</button>
+			</div>
+		</form>
+	</section>
+
+</div>
+
+
+
+

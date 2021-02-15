@@ -1,0 +1,62 @@
+﻿@model MovieInfoList.Models.Movie
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1 class="p-3 mb-2 bg-secondary text-white">Details</h1>
+
+<h3 class="text-danger "> @ViewBag.Message</h3>
+<table class="table">
+	<thead class="p-3 mb-2 bg-info text-white">
+		<tr>
+			<th>
+
+				<h2>@Html.DisplayNameFor(model => model.Name)</h2>
+			</th>
+			<th>
+				<h2>@Html.DisplayNameFor(model => model.Description)</h2>
+			</th>
+			<th>
+				<h2>@Html.DisplayNameFor(model => model.DateOfRelease)</h2>
+			</th>
+			<th>
+				<h2>@Html.DisplayNameFor(model => model.Director)</h2>
+			</th>
+			<th>
+				<h2>@Html.DisplayNameFor(model => model.Image)</h2>
+			</th>
+		</tr>
+	</thead>
+	<tbody class="font-weight-bold">
+		<tr>
+			<td>
+				<h5>@Html.DisplayFor(modelItem => modelItem.Name)</h5>
+			</td>
+			<td>
+				<h5>@Html.DisplayFor(modelItem => modelItem.Description)</h5>
+			</td>
+			<td>
+				<h5>@Html.DisplayFor(modelItem => modelItem.DateOfRelease)</h5>
+			</td>
+			<td>
+				<h5>@Html.DisplayFor(modelItem => modelItem.Director)</h5>
+			</td>
+			<td>
+				<img src="~/images/@ViewData.Model.FileName"
+					 height="400" width="350"
+					 class="rounded"
+					 asp-append-version="true" />
+			</td>
+			<td>
+				<a class="btn btn-info" asp-action="GetMovie" asp-route-id="@Model.Id">Edit</a>				 
+			</td>
+			<td>				 
+				<a class="btn btn-danger" asp-action="DeleteMovie" asp-route-id="@Model.Id">Delete</a>
+			</td>
+		</tr>
+		</tbody>	
+</table>
+<div>
+	<a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,52 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<MovieInfoList.Models.Entity.MovieEntity>
+
+@{
+	ViewData["Title"] = "Index";
+}
+<div class="bg-secondary text-white">
+	<h1>Movies</h1>
+</div>
+<nav class="navbar navbar-expand-sm bg-light justify-content-center" aria-label="Index navigation example">
+	@await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+</nav>
+<p>
+	<a type="submit" class="text-dark" asp-action="Create">Create New</a>
+</p>
+
+<table style="width:100%" class="table table-dark">
+
+	<thead class="text-primary">
+		<tr>
+			<th>
+
+				@Html.DisplayNameFor(model => model.Name)
+
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td class="font-weight-bold">
+					<h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+				</td>
+				<td>
+					<img src="~/images/@item.FileName"
+						 class="img-rounded"
+						 height="200" width="200"
+						 asp-append-version="true" />
+				</td>
+				<td>
+					<a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@item.Id">Details</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+<p class="nav-item">
+	<a type="submit" class="nav-link text-dark"  id=account asp-controller="Home" asp-action="Index">Logout</a>
+</p>
+<nav aria-label="Index navigation example">
+	<vc:pager paging-list="@Model" />
+</nav>
