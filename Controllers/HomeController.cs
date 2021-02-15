@@ -20,7 +20,7 @@ namespace MovieInfoList.Controllers
 
 		public IActionResult Index()
 		{
-			if (!ModelState.IsValid)
+			if (ModelState.IsValid)
 			{
 				return RedirectToAction("Index","Movies");
 			}

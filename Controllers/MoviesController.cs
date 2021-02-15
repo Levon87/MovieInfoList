@@ -40,7 +40,7 @@ namespace MovieList.Controllers
 			{
 				if (ModelState.IsValid)
 				{
-					List<Movie> movieModelList = new List<Movie>();
+				 
 					var movieList =  _context.Movies.Include(x => x.User).AsNoTracking().OrderBy(p => p.Id);
 					var model = await PagingList.CreateAsync(movieList, 10, page);				 
 					return View(model);
