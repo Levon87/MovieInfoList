@@ -39,11 +39,10 @@ namespace MovieList.Controllers
 			try
 			{
 				if (ModelState.IsValid)
-				{
+				{	
 				 
-					var movieList =  _context.Movies.Include(x => x.User).AsNoTracking().OrderBy(p => p.Id);
-					var model = await PagingList.CreateAsync(movieList, 10, page);				 
-					return View(model);
+					var pagingModel = await _movieService.CreatePagination(page);
+					return View(pagingModel);
 				}
 				else
 				{
@@ -77,7 +76,7 @@ namespace MovieList.Controllers
 				string path = "/Images/" + movie.Image.FileName;
 				using (var fileStream = new FileStream(_hostingEnvironment.WebRootPath + path, FileMode.Create))
 				{
-					await movie.Image.CopyToAsync(fileStream);
+					await _movieService.CopyImage(fileStream,movie);
 				}
 
 				if (ModelState.IsValid)
@@ -173,9 +172,7 @@ namespace MovieList.Controllers
 		{
 			var currentMovie = await _context.Movies.FindAsync(movie.Id);
 			var movieEntity= _mapper.Map(movie, currentMovie);
-
-			_context.Movies.Remove(movieEntity);
-			await _context.SaveChangesAsync();
+			await _movieService.Remove(movieEntity);			
 			return RedirectToAction(nameof(Index));
 		}
 		private bool MovieExists(Guid id)

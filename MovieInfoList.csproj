@@ -17,6 +17,8 @@
     <Compile Remove="Migrations\20210212103440_ChangeMovieObject.Designer.cs" />
     <Compile Remove="Migrations\20210212103705_Addprops.cs" />
     <Compile Remove="Migrations\20210212103705_Addprops.Designer.cs" />
+    <Compile Remove="Migrations\20210215143012_init.cs" />
+    <Compile Remove="Migrations\20210215143012_init.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

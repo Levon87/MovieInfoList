@@ -1,8 +1,8 @@
 ﻿using MovieInfoList.Models;
 using MovieInfoList.Models.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using ReflectionIT.Mvc.Paging;
+using System; 
+using System.IO; 
 using System.Threading.Tasks;
 
 namespace MovieInfoList.IService
@@ -13,6 +13,7 @@ namespace MovieInfoList.IService
 		Task<MovieEntity> GetById(Guid Id);
 		Task Update(MovieEntity entity);
 		Task Remove(MovieEntity entity);
-		 
+		Task<PagingList<MovieEntity>> CreatePagination(int page);
+		Task CopyImage(FileStream fileStream, Movie movie);
 	}
 }
